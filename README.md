@@ -24,7 +24,7 @@ Concepts used:
 - const
 - sorting with lambda function
 - Header files (to define classes) 
-- 
+
 Concepts to add:
 - Threads
 - Template
