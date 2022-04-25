@@ -23,10 +23,11 @@ Concepts used:
 - Static var
 - const
 - sorting with lambda function
+- Header files (to define classes) 
 
 Concepts to add:
 - Threads
 - Template
 - Copy Constructor
 - Move Constructor
-- Header files
+
