@@ -17,7 +17,8 @@ private:
     void init(); //intitialize private function
 
 public:
-    static int playerCount; // stores created players count
+    static int playerCount; // stores created players count,
+    //inline static int playerCount{0}; // stores created players count, inline added to be able to declare the the static memeber inline c++ 17
     Player(); //constructor
     void requestPlayerName(bool newName);
     void requestPlayerBalance();
@@ -29,7 +30,7 @@ public:
     void setBettingAmount(int a);
     const std::string& getPlayerName() const;
     void setPlayerName(std::string& name);
-    //it is important to make operator overloading function a friend of the class because it would be called without creating an object.
+    //Make operator overloading function a friend of the class to be able to access the private memebers of the class.
     friend std::ostream& operator<<(std::ostream& output, Player const& player);
     bool operator< (const Player& otherPlayer);
     bool operator> (const Player& otherPlayer);
