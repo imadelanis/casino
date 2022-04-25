@@ -11,9 +11,6 @@
 #include "Game.h" //Include game header file
 #include "Player.h" //Include player header file
 
-
-
-
 Game::Game() {
     rules();
     init();
@@ -29,7 +26,7 @@ void Game::rules()
 }
 
 void Game::init() {
-    //Ask for balance
+    //Ask for number of players
     std::cout << "\n\nEnter the number of players:";
     std::cin >> playersCount;
 
@@ -44,7 +41,6 @@ void Game::init() {
         }
         //Add player to the list
         players.emplace(player->getPlayerName(), player);
-
     }
 
     //Start game
@@ -55,9 +51,9 @@ void Game::init() {
 void Game::start()
 {
 
-    char coninuePlay;
-    int bettingAmount;
-    int guess;
+    char coninuePlay; //used as glag to continue play or not
+    int bettingAmount; // bett amount entred by player 
+    int guess; // the number to gess
     int dice; // stores the random number
 
     do

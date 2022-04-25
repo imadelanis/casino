@@ -104,7 +104,6 @@ void Player::setPlayerName(std::string& name) {
     playerName = name;
 }
 
-//it is important to make operator overloading function a friend of the class because it would be called without creating an object.
 std::ostream& operator<<(std::ostream& output, Player const& player)
 {
     return std::cout << "Player" << player.playerIndex << ": " << player.playerName << ", Current Balance : $" << player.balance << std::endl;

@@ -29,6 +29,7 @@ public:
     void setBettingAmount(int a);
     const std::string& getPlayerName() const;
     void setPlayerName(std::string& name);
+    //it is important to make operator overloading function a friend of the class because it would be called without creating an object.
     friend std::ostream& operator<<(std::ostream& output, Player const& player);
     bool operator< (const Player& otherPlayer);
     bool operator> (const Player& otherPlayer);
