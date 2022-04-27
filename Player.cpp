@@ -1,8 +1,15 @@
+/*
+ * File:   Player.cpp
+ * Author: Imad Anis <imad.anis@neumann.ai>
+ *
+ */
+
 #include <iostream> //Needed to use inputs / outputs
 #include <string> // Needed to use strings
 
 #include "Const.h" //Include consts header file
 #include "Player.h" //Include player header file
+#include "Log.h" //Include log header file
 
 //required to initialize the player index
 int Player::playerCount = 0;
@@ -10,11 +17,11 @@ int Player::playerCount = 0;
 //Constructor
 Player::Player() : playerName(""), balance(0)
 {
+    
     playerIndex = ++playerCount;
 
-    #if  DEBUG == 1
-    std::cout << "\n\nPlayer " << playerIndex << " created!!" << std::endl;
-    #endif // DEBUG
+    LOG(TYPE_LOG::DEBUG) << "PLayer " << playerIndex << " Constructed";
+    
     init();
 }
 
@@ -119,8 +126,7 @@ bool Player::operator> (const Player& otherPlayer) {
 
 Player::~Player() {
 
-    #if  DEBUG == 1
-    std::cout << "Player " << playerIndex << " destroyed !!" << std::endl;
-    #endif;
+    LOG(TYPE_LOG::DEBUG) << "PLayer " << playerIndex << " Destructed";
+
     playerCount--;
 }

@@ -1,3 +1,9 @@
+/*
+ * File:   Game.cpp
+ * Author: Imad Anis <imad.anis@neumann.ai>
+ *
+ */
+
 #include <iostream> //Needed to use inputs / outputs
 #include <string> // Needed to use strings
 #include <cstdlib> // Needed to use random numbers
@@ -10,15 +16,23 @@
 #include "Const.h" //Include consts header file
 #include "Game.h" //Include game header file
 #include "Player.h" //Include player header file
+#include "Log.h" //Include log header file
 
 Game::Game() {
+
+    LOG(TYPE_LOG::DEBUG) << "GAME Constructed";
     rules();
     init();
 };
 
 void Game::rules()
 {
-    system("cls");
+    #ifndef DEBUGMODE
+        system("cls"); //clear screen if debug mode is disabled 
+    #endif
+    
+    LOG(TYPE_LOG::INFO) << "Print RULES";
+
     std::cout << "\t\t======CASINO NUMBER GUESSING RULES!======\n";
     std::cout << "\t1. Choose a number between 1 to 10\n";
     std::cout << "\t2. Winner gets " << WON_VALUE << " times of the money bet\n";
@@ -26,6 +40,9 @@ void Game::rules()
 }
 
 void Game::init() {
+
+    LOG(TYPE_LOG::INFO) << "Initialize GAME";
+
     //Ask for number of players
     std::cout << "\n\nEnter the number of players:";
     std::cin >> playersCount;
@@ -58,10 +75,16 @@ void Game::start()
 
     do
     {
-        system("cls");
+        #ifndef DEBUGMODE
+            system("cls"); //clear screen if debug mode is disabled 
+        #endif
+
+        LOG(TYPE_LOG::INFO) << "Start GAME ROUND";
 
         //increment round 
         ++round;
+
+        LOG(TYPE_LOG::INFO) << "Round " << round << " Started !!";
 
         //Show players summary 
         summary();
@@ -138,6 +161,8 @@ void Game::start()
 
     } while (coninuePlay == 'Y' || coninuePlay == 'y');
 
+    LOG(TYPE_LOG::INFO) << "End GAME";
+
     std::cout << "\n\n\n";
     std::cout << "\n\nThanks for playing the game.\n\n";
 
@@ -145,6 +170,8 @@ void Game::start()
 
 void Game::summary()
 {
+    LOG(TYPE_LOG::INFO) << "Print GAME Summary";
+
     std::cout << "\nRound " << round << " Summary: " << std::endl;
     std::cout << "------------------------------------" << std::endl;
 
@@ -176,6 +203,8 @@ void Game::summary()
 }
 
 Game::~Game() {
+    LOG(TYPE_LOG::DEBUG) << "GAME Destructed";
+
     for (auto player : players) {
         //destroy players
         delete player.second;

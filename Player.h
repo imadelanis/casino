@@ -1,3 +1,9 @@
+/*
+ * File:   Player.h
+ * Author: Imad Anis <imad.anis@neumann.ai>
+ *
+ */
+
 #pragma once
 #include <iostream> //Needed to use inputs / outputs
 #include <string> // Needed to use strings

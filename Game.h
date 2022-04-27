@@ -1,3 +1,9 @@
+/*
+ * File:   Game.h
+ * Author: Imad Anis <imad.anis@neumann.ai>
+ *
+ */
+
 #pragma once
 #include <string> // Needed to use strings
 #include <map> //Needed to store players
