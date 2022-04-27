@@ -24,10 +24,10 @@ Concepts used:
 - const
 - sorting with lambda function
 - Header files (to define classes) 
+- Template Function 
 
 Concepts to add:
 - Threads
-- Template
 - Copy Constructor
 - Move Constructor
 
